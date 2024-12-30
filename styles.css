@@ -5,43 +5,32 @@
     src: url(./assets/Outfit-VariableFont_wght.ttf);
 }
 
+:root {
+    --primary-colour: #010922;
+    --secondary-colour: #8080D7;
+    --tertiary-colour: #AAD9D9;
+    --text-colour: #FFFFFF;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+h1, h2, h3,
+button, header,
+.tech-card {
+    font-family: "Outfit", Arial, sans-serif;
+}
+
 body {
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
-    height: 200vh;
+    font-family: "Roboto", Helvetica, sans-serif;
+    background-color: var(--primary-colour);
+    color: var(--text-colour);
 }
 
-.contianer {
-    margin: auto 0;
+.container {
+    margin: 0 auto;
     width: 90%;
-    display: flex;
-    flex-direction: column;
-}
-
-header {
-    background-color: aqua;
-    border: 2px solid red;
-    height: 3%;
-}
-
-nav {
-    padding: 1rem;
-}
-
-nav > ul {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    list-style-type: none;
-}
-
-main > section {
-    height: 40rem;
-    background-color: burlywood;
-    border: 3px solid red;
 }
