@@ -33,6 +33,10 @@ button:active {
     box-shadow: inset 0 0 16px 5px var(--primary-colour-blur);
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 body {
     font-family: "Roboto", Helvetica, sans-serif;
     background-color: var(--primary-colour);
