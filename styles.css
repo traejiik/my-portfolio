@@ -413,7 +413,7 @@ h3 {
     font-weight: 600;
 }
 
-.link-plc-hldr > svg {
+.link-plc-hldr svg {
     height: 3rem;
     width: 3rem;
     fill: var(--tertiary-colour);
