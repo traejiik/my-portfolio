@@ -45,6 +45,7 @@ body {
   font-family: "Roboto", Helvetica, sans-serif;
   background-color: var(--primary-colour);
   color: var(--text-colour);
+  overflow-x: hidden;
 }
 
 .container {
