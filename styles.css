@@ -9,7 +9,7 @@
     --primary-colour: #010922;
     --primary-colour-blur: rgba(1, 9, 34, 0.5);
     --secondary-colour: #8080D7;
-    --secondary-colour-blur: rgba(128, 128, 215, 0.5);
+    --secondary-colour-blur: rgba(128, 128, 215, 0.709);
     --tertiary-colour: #AAD9D9;
     --tertiary-colour-blur: rgba(170, 217, 217, 0.5);
     --text-colour: #FFFFFF;
@@ -238,7 +238,7 @@ h3 {
 }
 
 .projects {
-    background-color: var(--secondary-colour);
+    background-color: var(--secondary-colour-blur);
     border-radius: 3.2rem;
     width: 100%;
     height: 55rem;
