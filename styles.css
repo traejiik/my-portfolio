@@ -105,6 +105,12 @@ nav a:visited {
     color: var(--text-colour);
 }
 
+nav a.active {
+    color: var(--secondary-colour);
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
 /* HERO SECTION */
 .hero {
     margin: 4rem 0;
