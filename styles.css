@@ -80,17 +80,16 @@ nav > p {
     color: var(--tertiary-colour);
 }
 
-nav > ul {
-    list-style-type: none;
+.head-link-ctn {
     display: flex;
     gap: 6rem;
 }
 
-nav li {
-    padding: 0 0 0.4rem;
+nav a {
+    padding: 0 0 0.6rem;
 }
 
-nav li:hover {
+nav a:hover {
     border-bottom: var(--nav-hover);
     color: var(--secondary-colour);
 }
@@ -107,8 +106,8 @@ nav a:visited {
 
 nav a.active {
     color: var(--secondary-colour);
-    font-weight: bolder;
-    text-decoration: underline;
+    border-bottom: var(--nav-hover);
+    font-weight: bold;
 }
 
 /* HERO SECTION */
