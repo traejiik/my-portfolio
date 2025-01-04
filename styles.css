@@ -371,6 +371,7 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(640px, 1fr));
   border-radius: 20px;
   padding: 1rem;
+  gap: 1rem;
 }
 
 .proj-card:hover {
@@ -416,6 +417,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   margin: 1rem 0 0;
+  gap: 2rem;
 }
 
 .form-ctn {
@@ -431,6 +433,7 @@ h3 {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  justify-self: center;
 }
 
 #fancy-form {
