@@ -42,7 +42,7 @@ linkToForm.addEventListener("click", (event) => {
 const switchC = document.querySelectorAll(".switch-btn");
 const swtchSec = document.querySelectorAll(".switchers > div");
 
-switchC.forEach((item, index) => {
+switchC.forEach((item) => {
   item.addEventListener("click", () => {
     switchC.forEach((btn) => btn.classList.remove("selected"));
     item.classList.add("selected");
