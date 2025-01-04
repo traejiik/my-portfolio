@@ -38,7 +38,7 @@ linkToForm.addEventListener("click", (event) => {
   formName.focus();
 });
 
-// trials
+// trials for about switcher
 const switchC = document.querySelectorAll(".switch-btn");
 const swtchSec = document.querySelectorAll(".switchers > div");
 
@@ -47,10 +47,9 @@ switchC.forEach((item, index) => {
     switchC.forEach((btn) => btn.classList.remove("selected"));
     item.classList.add("selected");
 
-    // Hide all sections
     swtchSec.forEach((section) => {
-      section.style.opacity = "0"; // Fade out the previous section
-      section.style.transform = "translateX(100%)"; // Move it out of view
+      section.style.opacity = "0";
+      section.style.transform = "translateX(100%)";
       section.style.display = "none";
     });
 
@@ -58,8 +57,8 @@ switchC.forEach((item, index) => {
     selectedSec.style.display = "flex";
     setTimeout(() => {
       selectedSec.style.opacity = "1";
-      selectedSec.style.transform = "translateX(0)"; // Slide it into view
-    }, 50); // Delay to allow sliding animation
+      selectedSec.style.transform = "translateX(0)";
+    }, 50);
   });
 });
 
