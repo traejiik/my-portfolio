@@ -284,6 +284,10 @@ h2 {
   opacity: 0.5;
 }
 
+.switch-btn:hover {
+  cursor: pointer;
+}
+
 .switch-btn.selected {
   background: linear-gradient(90deg, var(--secondary-colour), var(--tertiary-colour));
   color: var(--primary-colour);
