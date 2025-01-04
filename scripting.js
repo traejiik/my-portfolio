@@ -47,17 +47,19 @@ switchC.forEach((item, index) => {
     switchC.forEach((btn) => btn.classList.remove("selected"));
     item.classList.add("selected");
 
+    const sectionName = item.getAttribute("data-section");
+
     swtchSec.forEach((section) => {
       section.style.opacity = "0";
       section.style.transform = "translateX(100%)";
       section.style.display = "none";
     });
 
-    const selectedSec = swtchSec[index];
-    selectedSec.style.display = "flex";
+    const selectSec = document.querySelector(`.${sectionName}`);
+    selectSec.style.display = "flex";
     setTimeout(() => {
-      selectedSec.style.opacity = "1";
-      selectedSec.style.transform = "translateX(0)";
+      selectSec.style.opacity = "1";
+      selectSec.style.transform = "translateX(0)"; // Slide in
     }, 50);
   });
 });
