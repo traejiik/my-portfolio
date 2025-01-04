@@ -10,10 +10,10 @@ function updateActive() {
     window.scrollY + window.innerHeight / 2 < sections[index].offsetTop
   ) {}
 
-  navLink.forEach((link) => link.classList.remove('active'));
-  navLink[index].classList.add('active');
+  navLink.forEach((link) => link.classList.remove("active"));
+  navLink[index].classList.add("active");
 }
-window.addEventListener('scroll', updateActive);
+window.addEventListener("scroll", updateActive);
 
 // HERO SECTION BUTTONS
 const projBtn = document.querySelector(".hero-proj-btn");
@@ -39,12 +39,27 @@ linkToForm.addEventListener("click", (event) => {
 });
 
 // trials
-const switchC = document.querySelectorAll('.switch-btn');
+const switchC = document.querySelectorAll(".switch-btn");
+const swtchSec = document.querySelectorAll(".switchers > div");
 
-switchC.forEach((item) => {
-  item.addEventListener('click', () => {
-    switchC.forEach((btn) => btn.classList.remove('selected'));
-    item.classList.add('selected');
+switchC.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    switchC.forEach((btn) => btn.classList.remove("selected"));
+    item.classList.add("selected");
+
+    // Hide all sections
+    swtchSec.forEach((section) => {
+      section.style.opacity = "0"; // Fade out the previous section
+      section.style.transform = "translateX(100%)"; // Move it out of view
+      section.style.display = "none";
+    });
+
+    const selectedSec = swtchSec[index];
+    selectedSec.style.display = "flex";
+    setTimeout(() => {
+      selectedSec.style.opacity = "1";
+      selectedSec.style.transform = "translateX(0)"; // Slide it into view
+    }, 50); // Delay to allow sliding animation
   });
 });
 
