@@ -38,5 +38,15 @@ linkToForm.addEventListener("click", (event) => {
   formName.focus();
 });
 
+// trials
+const switchC = document.querySelectorAll('.switch-btn');
+
+switchC.forEach((item) => {
+  item.addEventListener('click', () => {
+    switchC.forEach((btn) => btn.classList.remove('selected'));
+    item.classList.add('selected');
+  });
+});
+
 // CALLING FUNCTIONS
 updateActiveLink();

@@ -55,6 +55,7 @@ body {
   flex-direction: column;
   position: relative;
   z-index: 1;
+  background-color: inherit;
 }
 
 .blurry-circle-1,
@@ -241,6 +242,47 @@ h2 {
 
 .about > p {
   font-size: 1rem;
+}
+
+.switch-ctn {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.switch-btn-ctnr {
+  display: flex;
+  width: 52rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, rgba(211, 211, 211, 0.3), rgba(255, 255, 255, 0.3));
+  backdrop-filter: blur(227px);
+  border-radius: 0.7rem;
+  padding: 0.25rem;
+}
+
+.switch-btn {
+  font-size: 1.3rem;
+  width: 17rem;
+  text-transform: capitalize;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 750;
+  font-family: "Outfit", Arial, sans-serif;
+  letter-spacing: 1px;
+  border-radius: 0.7rem;
+  transition: transform 1s ease, opacity 0.3s ease;
+  opacity: 0.5;
+}
+
+.switch-btn.selected {
+  background: linear-gradient(90deg, var(--secondary-colour), var(--tertiary-colour));
+  backdrop-filter: blur(10px);
+  color: var(--primary-colour);
+  box-shadow: 0px 0px 16px var(--primary-colour);
+  opacity: 1;
 }
 
 .technologies {
