@@ -333,6 +333,11 @@ h2 {
   text-transform: uppercase;
 }
 
+.nothing-here {
+  fill: var(--tertiary-colour);
+  width: 39.3rem;
+}
+
 /* PROJECTS SECTION */
 h3 {
   font-size: 1.6rem;
