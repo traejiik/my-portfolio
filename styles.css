@@ -335,7 +335,7 @@ h2 {
 
 .nothing-here {
   fill: var(--tertiary-colour);
-  width: 39.3rem;
+  width: 100%;
 }
 
 /* PROJECTS SECTION */
