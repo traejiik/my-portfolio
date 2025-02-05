@@ -91,16 +91,15 @@ body {
 header {
   font-size: 1.3rem;
   font-weight: 400;
-  padding: 1rem 0.5rem;
+  padding: 1rem 5%;
   position: fixed;
   top: 0;
-  left: 5%;
+  left: 0;
   z-index: 2;
-  width: 90%;
+  width: 100%;
   background-color: var(--primary-colour-blur);
   backdrop-filter: blur(20px);
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+  border-radius: 0 0 1rem 1rem;
 }
 
 nav {
