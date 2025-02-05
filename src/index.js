@@ -1,3 +1,5 @@
+import './styles.css';
+
 // HEADER ACTIVE STATUS
 const navLink = document.querySelectorAll('nav a');
 const sections = document.querySelectorAll('section');
