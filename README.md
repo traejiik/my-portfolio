@@ -5,12 +5,21 @@
 This is my portfolio website.
 I will be building my portfolio as I improve on my skills in web development
 
+### CURRENTLY WORKING ON
+
+- Switcher for work experience/certificates/technologies
+- Incorporating webpack and its dependencies
+
+### CHANGES
+
+[5/02/2025] Migrated files to use webpack bundler and node packages
+
 ### Project Structure
 
-- **index.html**: contains the main structure of my portfolio
+- **template.html**: contains the main structure of my portfolio
 - **styles.css**: contains the styling of the portfolio
-- **scripting.js**: contains the basic scripting for the web page
-- **./assets**: contains any images or font styles required in the html
+- **index.js**: contains the basic scripting for the web page + other modules
+- **./src/assets**: contains any images or font styles required in the html
 
 ### Features
 
@@ -19,6 +28,9 @@ I will be building my portfolio as I improve on my skills in web development
 3. **Navigation Buttons**: There are Navigtion buttons to jump to any preffered section of the web page
 
 ### Technologies Used
+
 - HTML5
 - CSS3
 - JavaScript
+- Webpack
+- ESLint, Prettier and
