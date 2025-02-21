@@ -387,6 +387,7 @@ h3 {
 .proj-card:hover {
   border: 3px solid var(--primary-colour);
   background-color: var(--primary-colour);
+  transition: 0.3s ease-in;
 }
 
 .proj-card:hover > .card-txt-ctnr {
