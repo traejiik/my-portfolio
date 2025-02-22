@@ -408,13 +408,70 @@ h3 {
   gap: 2rem;
 }
 
+.slider-dimen {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
 .card-img-ctnr {
   width: 75%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   border-radius: 40px;
   background-color: var(--primary-colour);
   justify-self: center;
   align-self: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.wide-frame {
+  position: absolute;
+  display: flex;
+  transform: translateX(-0%);
+  transition: transform 1s;
+}
+
+.controls {
+  position: absolute;
+  padding: 0 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.3));
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.controls:hover {
+  opacity: 1;
+}
+
+.nav-circles {
+  align-self: flex-end;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-circles > button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.nav-circles > button:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+button[data-index-change] {
+  font-size: 40px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /* CONTACT SECTION */
