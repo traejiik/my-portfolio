@@ -12,19 +12,19 @@ import tic3 from '../assets/images/proj/tic/tic3.png';
 
 const projects = [
   {
-    link: 'https://traejiik.github.io/weather-app/',
+    href: 'https://traejiik.github.io/weather-app/',
     title: 'Wezaria | Weather-App',
     desc: 'A weather app using the Visual Crossing API to request and render a users required weather for a location.',
     imgs: [home, dash1, dash2, dash3, dash4],
   },
   {
-    link: 'https://traejiik.github.io/tic-tac-toe/',
+    href: 'https://traejiik.github.io/todo-list/',
     title: 'TODOalot | Todo-List',
     desc: 'A project to add and track tasks in the form of a Todo-list.',
     imgs: [todo1, todo2, todo3],
   },
   {
-    link: 'https://traejiik.github.io/todo-list/',
+    href: 'https://traejiik.github.io/tic-tac-toe/',
     title: 'Tic-Tac-Toe',
     desc: 'A simple, fun project to play tic-tac-toe in the browser, keep score and announce a winner',
     imgs: [tic1, tic2, tic3],
