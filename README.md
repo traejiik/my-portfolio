@@ -7,7 +7,7 @@ I will be building my portfolio as I improve on my skills in web development
 
 ### CURRENTLY WORKING ON
 
-- Switcher for work experience/certificates/technologies
+- Switcher for work certificates/technologies
 - Incorporating webpack and its dependencies
 
 ### CHANGES
@@ -35,4 +35,4 @@ I will be building my portfolio as I improve on my skills in web development
 - CSS3
 - JavaScript
 - Webpack
-- ESLint, Prettier and
+- ESLint, Prettier
