@@ -295,27 +295,49 @@ h2 {
 }
 
 .switchers > div {
-  display: none; /* Hide all sections by default */
+  display: none;
   opacity: 0;
   transform: translateX(100%);
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .switchers > div:nth-child(2) {
-  display: flex; /* Display the first section by default */
+  display: flex;
   opacity: 1;
   transform: translateX(0);
 }
 
 .technologies,
-.certifications,
-.wrk-exp {
+.certifications {
   display: flex;
   justify-content: center;
   padding: 2rem;
   flex-wrap: wrap;
   gap: 2rem;
 }
+
+.cert-card {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: 12.5rem;
+  padding: 0 5%;
+  background-color: rgba(217, 217, 217, 0.3);
+  border-radius: 2rem;
+  align-content: center;
+  justify-items: center;
+  border: 2px solid white;
+}
+
+.cert-img {
+  height: 9.5rem;
+}
+
+.cert-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
 .tech-card {
   border: 5px dashed var(--tertiary-colour);
@@ -330,11 +352,6 @@ h2 {
   font-size: 1.4rem;
   font-weight: 600;
   text-transform: uppercase;
-}
-
-.nothing-here {
-  fill: var(--tertiary-colour);
-  width: 100%;
 }
 
 /* PROJECTS SECTION */
