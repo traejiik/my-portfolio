@@ -5,6 +5,8 @@
 This is my portfolio website.
 I will be building my portfolio as I improve on my skills in web development
 
+**here is the live link:** ([anotidamunemo](https://anotidamunemo.netlify.app/))
+
 ### CURRENTLY WORKING ON
 
 - Switcher for work certificates/technologies
