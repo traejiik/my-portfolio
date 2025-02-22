@@ -1,9 +1,9 @@
-/* eslint-disable import/no-dynamic-require */
-/* eslint-disable global-require */
+import html5 from '../assets/images/cert/itsWebApp.png';
+
 const technologies = ['html', 'css', 'javascript', 'git', 'figma'];
 const certificates = [
   {
-    imgSrc: '../assets/images/cert/itsWebApp.png',
+    imgSrc: html5,
     altText: 'its html5',
     title: 'HTML5 Web Applications',
     desc: 'Demonstrates the ability to use HTML5, CSS, and JavaScript to build responsive web applications that will run on a variety of touch-enabled devices, including PCs, tablets, and phones.',
@@ -18,7 +18,7 @@ function createCertCard({ imgSrc, altText, title, desc }) {
   imgContainer.className = 'cert-img-ctn';
 
   const img = document.createElement('img');
-  img.src = require(imgSrc);
+  img.src = imgSrc;
   img.alt = altText || 'Certificate Image';
   img.className = 'cert-img';
 
@@ -46,6 +46,8 @@ function createTechCard(element) {
   const techCard = document.createElement('div');
   techCard.className = 'tech-card';
   techCard.textContent = element;
+
+  return techCard;
 }
 
 function renderCert() {
