@@ -26,74 +26,61 @@ function switchFunc() {
   });
 }
 
-const slider = document.querySelector('.wide-frame');
-const indexButtons = document.querySelector('.nav-circles').childNodes;
-const arrowButtons = document.querySelectorAll('[data-index-change]');
-let currIndex = 0;
-
-function slide(nextIndex) {
-  const imgs = document.querySelectorAll('img.slider-dimen');
-  if (nextIndex < 0) nextIndex = imgs.length - 1;
-  if (nextIndex >= imgs.length) nextIndex = 0;
-  console.log(currIndex, indexButtons);
-  indexButtons[currIndex].style.backgroundColor = '';
-  indexButtons[nextIndex].style.backgroundColor = 'white';
-  slider.style.transform = `translateX(-${nextIndex * 100}%)`;
-  currIndex = nextIndex;
-}
-
-function btnFunction() {
-  indexButtons[0].style.backgroundColor = 'white';
-  indexButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-      slide(index);
-    });
-  });
-
-  arrowButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const indexChange = +button.getAttribute('data-index-change');
-      slide(currIndex + indexChange);
-    });
-  });
-
+function initializeProjectSliders() {
   document.querySelectorAll('.card-img-ctnr').forEach((container) => {
+    const slider = container.querySelector('.wide-frame');
+    const imgs = container.querySelectorAll('img.slider-dimen');
+    const indexButtons = container.querySelectorAll('.nav-circles > button');
+    const arrowButtons = container.querySelectorAll('[data-index-change]');
+    let currIndex = 0;
+    let autoSlideInterval;
+    let isSliding = false;
+
+    function slide(nextIndex) {
+      if (nextIndex < 0) nextIndex = imgs.length - 1;
+      if (nextIndex >= imgs.length) nextIndex = 0;
+      indexButtons[currIndex]?.classList.remove('active');
+      indexButtons[nextIndex]?.classList.add('active');
+      slider.style.transform = `translateX(-${nextIndex * 100}%)`;
+      currIndex = nextIndex;
+    }
+
+    function startAutoSlide() {
+      if (!isSliding) {
+        autoSlideInterval = setInterval(() => slide(currIndex + 1), 5000);
+        isSliding = true;
+      }
+    }
+
+    function stopAutoSlide() {
+      clearInterval(autoSlideInterval);
+      isSliding = false;
+    }
+
+    indexButtons.forEach((button, index) => {
+      button.addEventListener('click', () => slide(index));
+    });
+
+    arrowButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const indexChange = +button.getAttribute('data-index-change');
+        slide(currIndex + indexChange);
+      });
+    });
+
+    container.addEventListener('mouseover', stopAutoSlide);
+    container.addEventListener('mouseout', startAutoSlide);
+
     container.addEventListener('click', (event) => {
       event.stopPropagation();
       event.preventDefault();
     });
-  });
-}
 
-const navContainer = document.querySelector('.controls');
-let id;
-let isSliding = false;
-
-function startAutoSlide() {
-  if (!isSliding) {
-    id = setInterval(() => slide(currIndex + 1), 5000);
-    isSliding = true;
-  }
-}
-
-function stopAutoSlide() {
-  clearInterval(id);
-  isSliding = false;
-}
-
-function slideListener() {
-  navContainer.addEventListener('mouseover', () => stopAutoSlide());
-  navContainer.addEventListener('mouseout', () => startAutoSlide());
-
-  document.addEventListener('touchstart', (e) => {
-    if (e.target !== navContainer && !navContainer.contains(e.target))
-      startAutoSlide();
+    startAutoSlide();
   });
 }
 
 export default function projectListeners() {
   switchFunc();
-  btnFunction();
-  slideListener();
-  startAutoSlide();
+  initializeProjectSliders();
 }
