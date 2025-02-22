@@ -42,6 +42,13 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.pdf$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/docs/[name][ext]',
+        },
+      },
     ],
   },
 };
