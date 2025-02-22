@@ -1,5 +1,7 @@
 /* eslint-disable no-empty */
 /* eslint-disable no-plusplus */
+import cvPdf from '../assets/cv.pdf';
+
 // HEADER ACTIVE STATUS
 function headerListen() {
   const navLink = document.querySelectorAll('nav a');
@@ -36,10 +38,20 @@ function heroListen() {
 function contactListen() {
   const linkToForm = document.querySelector('.link-form');
   const formName = document.getElementById('name');
+  const cvBtn = document.querySelector('.cv-dwn');
 
   linkToForm.addEventListener('click', (event) => {
     event.preventDefault();
     formName.focus();
+  });
+
+  cvBtn.addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.href = cvPdf;
+    link.download = 'Anotida_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   });
 }
 
