@@ -17,7 +17,7 @@ module.exports = {
     'object-shorthand': 'off',
     'class-methods-use-this': 'off',
     'no-param-reassign': ['error', { props: false }],
-    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    'no-plusplus': ['warn', { allowForLoopAfterthoughts: true }],
     'node/no-unsupported-features/es-syntax': 'off',
     'max-classes-per-file': ['error', 2],
   },
