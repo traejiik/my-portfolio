@@ -2,6 +2,29 @@
 /* eslint-disable no-plusplus */
 import cvPdf from '../assets/cv.pdf';
 
+// HEADER DROPDOWN
+function toggleHeader() {
+  const drpBtn = document.querySelector('.hd-drpbtn');
+  const header = document.querySelector('header');
+
+  drpBtn.addEventListener('click', () => {
+    if (header.classList.contains('visible')) {
+      header.style.opacity = '0';
+      header.style.transform = 'translateX(-100%)';
+
+      setTimeout(() => {
+        header.classList.remove('visible');
+      }, 300);
+    } else {
+      header.classList.add('visible');
+      setTimeout(() => {
+        header.style.opacity = '1';
+        header.style.transform = 'translateX(0)';
+      }, 50);
+    }
+  });
+}
+
 // HEADER ACTIVE STATUS
 function headerListen() {
   const navLink = document.querySelectorAll('nav a');
@@ -59,5 +82,6 @@ export default function listeners() {
   headerListen();
   heroListen();
   contactListen();
+  toggleHeader();
   window.addEventListener('scroll', headerListen);
 }
