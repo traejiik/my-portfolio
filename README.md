@@ -17,6 +17,7 @@ I will be building my portfolio as I improve on my skills in web development
 - [5/02/2025] Migrated files to use webpack bundler and node packages
 - [11/02/2025] Added certificate earned
 - [18/02/2025] Added finished projects
+- [24/02/2025] Added responsiveness for various screen sizes
 
 ### Project Structure
 
