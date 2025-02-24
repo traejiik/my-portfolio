@@ -94,6 +94,28 @@ body {
 }
 
 /* HEADER SECTION */
+.header-drpdown {
+  display: none;
+  justify-content: end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  background-color: var(--primary-colour-blur);
+  backdrop-filter: blur(20px);
+}
+
+.hd-drpbtn {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+.hd-drpbtn svg {
+  fill: #aad9d9;
+}
+
 header {
   font-size: 1.3rem;
   font-weight: 400;
@@ -127,9 +149,9 @@ nav > p {
 }
 
 .head-link-ctn a {
-  flex: 1; /* Each link takes up equal space */
-  text-align: center; /* Ensures text stays centered */
-  white-space: nowrap; /* Prevents text from wrapping */
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
 }
 
 nav a {
@@ -179,6 +201,7 @@ nav a.active {
 }
 
 .hero-txt > h1 {
+  /* display: none; */
   font-size: 4.7rem;
   font-weight: 700;
   text-transform: capitalize;
@@ -692,10 +715,16 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .header-drpdown {
+    display: flex;
+  }
+
   header {
     display: none;
     width: 50%;
     height: 100%;
+    opacity: 0;
+    transform: translateX(-100%);
   }
 
   nav {
@@ -710,6 +739,10 @@ footer {
   }
 
   /* hero */
+  .hero {
+    margin: 4rem 0 0;
+  }
+
   .hero-btn-ctn {
     justify-content: center;
   }
@@ -720,6 +753,10 @@ footer {
   }
 
   /* about */
+  .about {
+    margin: 0;
+  }
+
   .cert-card {
     height: 10rem;
   }
