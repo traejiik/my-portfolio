@@ -706,6 +706,7 @@ footer {
   .hero-img {
     height: 26.2rem;
     width: 26.2rem;
+    justify-self: center;
   }
 
   .hero-btn-ctn > button {
@@ -721,14 +722,20 @@ footer {
 
   header {
     display: none;
-    width: 50%;
+    width: 75vw;
     height: 100%;
     opacity: 0;
     transform: translateX(-100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  header.visible {
+    display: flex !important;
   }
 
   nav {
     flex-direction: column;
+    justify-content: flex-start;
   }
 
   .head-link-ctn {
