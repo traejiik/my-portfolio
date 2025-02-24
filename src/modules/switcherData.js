@@ -5,7 +5,7 @@ const certificates = [
   {
     imgSrc: html5,
     altText: 'its html5',
-    title: 'HTML5 Web Applications',
+    title: 'HTML5 Web Application Development',
     desc: 'Demonstrates the ability to use HTML5, CSS, and JavaScript to build responsive web applications that will run on a variety of touch-enabled devices, including PCs, tablets, and phones.',
   },
 ];
