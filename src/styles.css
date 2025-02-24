@@ -344,6 +344,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 4fr;
   height: 12.5rem;
+  gap: 1rem;
   padding: 0 5%;
   background-color: rgba(217, 217, 217, 0.3);
   border-radius: 2rem;
@@ -489,14 +490,14 @@ h3 {
 .nav-circles {
   align-self: flex-end;
   display: flex;
-  gap: 30px;
+  gap: 1.87rem;
 }
 
 .nav-circles > button {
   width: 1.2rem;
   height: 1.2rem;
   border: none;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   background-color: rgba(255, 255, 255, 0.3);
   transition: background-color 0.2s;
   cursor: pointer;
@@ -507,7 +508,7 @@ h3 {
 }
 
 button[data-index-change] {
-  font-size: 40px;
+  font-size: 2.5rem;
   color: white;
   background-color: transparent;
   border: none;
@@ -596,7 +597,7 @@ button[data-index-change] {
 .submit-btn {
   height: 3rem;
   width: 6.75rem;
-  border-radius: 135px;
+  border-radius: 8.4rem;
   border: 3px solid var(--tertiary-colour);
   background-color: var(--primary-colour);
   color: var(--tertiary-colour);
@@ -646,7 +647,7 @@ button[data-index-change] {
   color: var(--tertiary-colour);
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .ghost-btn:active {
@@ -676,16 +677,16 @@ footer {
   }
 
   .hero-txt > h1 {
-    font-size: 50px;
+    font-size: 3.125rem;
   }
 
   .hero-img {
-    height: 420px;
-    width: 420px;
+    height: 26.2rem;
+    width: 26.2rem;
   }
 
   .hero-btn-ctn > button {
-    width: 180px;
+    width: 11.25rem;
     font-size: medium;
   }
 }
@@ -717,43 +718,117 @@ footer {
     margin: 3rem 0;
     justify-self: center;
   }
+
+  /* about */
+  .cert-card {
+    height: 10rem;
+  }
+
+  .cert-img {
+    height: 6.5rem;
+  }
+
+  .cert-text h3 {
+    font-size: large;
+  }
+
+  .cert-text p {
+    font-size: small;
+  }
 }
 
 @media (max-width: 425px) {
   /* hero section */
+  .hero {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+
   .hero-intro {
+    text-align: center;
   }
 
   .hero-txt > h1 {
+    text-align: center;
   }
 
-  .hero-btn-ctn {
-  }
-
-  .hero-btn-ctn > button {
+  .hero-dscrp {
+    text-align: center;
   }
 
   .hero-img {
+    width: 100%;
+    height: auto;
   }
 
   /* about section */
+  h2 {
+    text-align: center;
+  }
+
+  .switch-ctn {
+    max-height: 50rem;
+  }
+
+  .switch-btn {
+    width: 100%;
+  }
+
+  .certifications {
+    overflow-x: scroll;
+  }
+
+  .technologies {
+    overflow-y: scroll;
+  }
+
   .cert-card {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    height: 19.4rem;
+    padding: 5%;
   }
 
   .cert-img {
+    height: 6rem;
   }
 
-  .cert-text {
+  .cert-text h3 {
+    text-align: center;
+  }
+
+  .cert-text p {
+    text-align: center;
+    font-size: smaller;
   }
 
   /* project section */
   .proj-card {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+
+  .card-img-ctnr {
+    border-radius: 1rem;
   }
 
   /* contact section */
   .ct-cont {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
 
   .form-ctn {
+    width: 100%;
+    height: 35.6rem;
+  }
+
+  .links h3 {
+    text-align: center;
+  }
+  
+  .link-txt-ctn {
+    text-align: justify;
+  }
+
+  .cv-dwn {
+    font-size: 1rem;
   }
 }
