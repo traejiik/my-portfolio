@@ -39,15 +39,17 @@ button:active {
 
 html {
   scroll-behavior: smooth;
-  width: 100vw;
 }
 
 body {
   font-family: 'Roboto', Helvetica, sans-serif;
   background-color: var(--primary-colour);
   color: var(--text-colour);
-  overflow-x: hidden;
+}
+
+html, body {
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .container {
