@@ -25,7 +25,7 @@ function toggleHeader() {
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= 769) {
+    if (window.innerWidth >= 1024) {
       header.style.opacity = '';
       header.style.transform = '';
       header.classList.remove('visible');
