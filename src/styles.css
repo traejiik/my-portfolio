@@ -286,6 +286,7 @@ h2 {
   align-items: center;
   position: relative;
   width: 80%;
+  max-height: 40rem;
   padding: 0.5rem;
   border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.1);
@@ -339,6 +340,12 @@ h2 {
   opacity: 1;
 }
 
+.switchers {
+  overflow-y: scroll;
+  width: 100%;
+  margin: 1.5rem 0 0.5rem;
+}
+
 .switchers > div {
   display: none;
   opacity: 0;
@@ -358,7 +365,7 @@ h2 {
 .certifications {
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  padding: 0 2rem;
   flex-wrap: wrap;
   gap: 2rem;
 }
@@ -689,7 +696,7 @@ footer {
   color: var(--text-colour);
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   /* hero */
   .hero {
     grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
@@ -713,6 +720,11 @@ footer {
     width: 11.25rem;
     font-size: medium;
   }
+
+  /* about section */
+  .switch-ctn {
+    max-height: 38rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -726,7 +738,9 @@ footer {
     height: 100%;
     opacity: 0;
     transform: translateX(-100%);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
   }
 
   header.visible {
@@ -748,42 +762,6 @@ footer {
   /* hero */
   .hero {
     margin: 4rem 0 0;
-  }
-
-  .hero-btn-ctn {
-    justify-content: center;
-  }
-
-  .hero-img {
-    margin: 3rem 0;
-    justify-self: center;
-  }
-
-  /* about */
-  .about {
-    margin: 0;
-  }
-
-  .cert-card {
-    height: 10rem;
-  }
-
-  .cert-img {
-    height: 6.5rem;
-  }
-
-  .cert-text h3 {
-    font-size: large;
-  }
-
-  .cert-text p {
-    font-size: small;
-  }
-}
-
-@media (max-width: 425px) {
-  /* hero section */
-  .hero {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
 
@@ -791,26 +769,42 @@ footer {
     text-align: center;
   }
 
-  .hero-txt > h1 {
+  .hero-txt h1 {
+    font-size: xxx-large;
     text-align: center;
   }
 
   .hero-dscrp {
     text-align: center;
+    font-size: medium;
+  }
+
+  .hero-btn-ctn {
+    justify-content: center;
+  }
+
+  .hero-btn-ctn button {
+    font-size: 1rem;
   }
 
   .hero-img {
-    width: 100%;
+    margin: 3rem 0 0;
+    justify-self: center;
+    width: 80%;
     height: auto;
   }
 
-  /* about section */
+  /* about */
   h2 {
     text-align: center;
   }
 
+  .about {
+    margin: 0;
+  }
+
   .switch-ctn {
-    max-height: 50rem;
+    max-height: 55rem;
   }
 
   .switch-btn {
@@ -818,7 +812,7 @@ footer {
   }
 
   .certifications {
-    overflow-x: scroll;
+    overflow-y: scroll;
   }
 
   .technologies {
@@ -828,24 +822,36 @@ footer {
   .cert-card {
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-    height: 19.4rem;
+    height: 19.5rem;
     padding: 5%;
   }
 
   .cert-img {
-    height: 6rem;
+    height: 7rem;
   }
 
   .cert-text h3 {
+    font-size: large;
     text-align: center;
   }
 
   .cert-text p {
+    font-size: small;
     text-align: center;
-    font-size: smaller;
+  }
+
+  .tech-card {
+    padding: 1rem 2rem;
+    width: 10rem;
+    height: 4rem;
+    font-size: 1.3rem;
   }
 
   /* project section */
+  .projects {
+    margin: 1.8rem 0;
+  }
+
   .proj-card {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
@@ -867,12 +873,51 @@ footer {
   .links h3 {
     text-align: center;
   }
-  
-  .link-txt-ctn {
-    text-align: justify;
-  }
 
   .cv-dwn {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  /* hero section */
+  .hero-txt h1 {
+    font-size: xxx-large;
+  }
+
+  .hero-btn-ctn button {
+    font-size: medium;
+  }
+
+  /* about section */
+  .switch-ctn {
+    max-height: 500px;
+  }
+
+  .switchers {
+    height: 100%;
+    width: 100%;
+  }
+
+  .certifications {
+    flex-direction: row;
+    overflow-x: scroll;
+  }
+
+  .cert-card {
+    width: 190px;
+  }
+
+  .cert-img {
+    height: 4rem;
+  }
+
+  .cert-text p {
+    font-size: smaller;
+  }
+
+  /* project section */
+  .card-txt-ctnr {
+    text-align: center;
   }
 }
