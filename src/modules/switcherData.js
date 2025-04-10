@@ -1,4 +1,5 @@
 import html5 from '../assets/images/cert/itsWebApp.png';
+import nvDLF from '../assets/images/cert/nvdLF.png';
 
 const technologies = ['html', 'css', 'javascript', 'git', 'figma'];
 const certificates = [
@@ -7,6 +8,12 @@ const certificates = [
     altText: 'its html5',
     title: 'HTML5 Web Application Development',
     desc: 'Demonstrates the ability to use HTML5, CSS, and JavaScript to build responsive web applications that will run on a variety of touch-enabled devices, including PCs, tablets, and phones.',
+  },
+  {
+    imgSrc: nvDLF,
+    altText: 'nvidia dlf',
+    title: 'Fundamentals of Deep Learning',
+    desc: 'Demonstrates competency in the completion in Fundamentals of Deep Learning by NVIDIA Deep Learning Institute.',
   },
 ];
 
