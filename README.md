@@ -18,7 +18,8 @@ I will be building my portfolio as I improve on my skills in web development
 - [11/02/2025] Added certificate earned
 - [18/02/2025] Added finished projects
 - [24/02/2025] Added responsiveness for various screen sizes
-- [25/02/2025] Started refactoring for a mobile-first approach
+- [25/02/2025] Started refactoring for a mobile-first approach (abandoned)
+- [07/05/2025] Added cms for future development. Started planning redesign
 
 ### Project Structure
 
