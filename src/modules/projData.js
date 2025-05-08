@@ -4,7 +4,7 @@ const client = createClient({
   projectId: 'ws70jog7',
   dataset: 'production',
   useCdn: true,
-  apiVersion: '2023-01-01',
+  apiVersion: '2025-05-08',
 });
 
 async function fetchProjects() {
