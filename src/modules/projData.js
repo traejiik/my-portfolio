@@ -52,19 +52,14 @@ function createProjectCard({ href, title, desc, imgs }) {
     imgs.forEach((src, index) => {
       if (!src || typeof src !== 'string' || !src.startsWith('http')) return;
 
-      const imgWrapper = document.createElement('div');
-      imgWrapper.className = 'slide';
-
       const img = document.createElement('img');
       img.src = src;
       img.alt = `projectImage${index + 1}`;
       img.className = 'slider-dimen';
 
-      imgWrapper.appendChild(img);
-      wideFrame.appendChild(imgWrapper);
+      wideFrame.appendChild(img);
 
       const navButton = document.createElement('button');
-      navButton.dataset.index = index;
       navCircles.appendChild(navButton);
     });
   } else {
