@@ -1,35 +1,20 @@
-import home from '../assets/images/proj/weather/home.png';
-import dash1 from '../assets/images/proj/weather/dash1.png';
-import dash2 from '../assets/images/proj/weather/dash2.png';
-import dash3 from '../assets/images/proj/weather/dash3.png';
-import dash4 from '../assets/images/proj/weather/dash4.png';
-import todo1 from '../assets/images/proj/todo/Todo1.png';
-import todo2 from '../assets/images/proj/todo/Todo2.png';
-import todo3 from '../assets/images/proj/todo/Todo3.png';
-import tic1 from '../assets/images/proj/tic/tic1.png';
-import tic2 from '../assets/images/proj/tic/tic2.png';
-import tic3 from '../assets/images/proj/tic/tic3.png';
+import { createClient } from '@sanity/client';
 
-const projects = [
-  {
-    href: 'https://traejiik.github.io/weather-app/',
-    title: 'Wezaria | Weather-App',
-    desc: 'A weather app using the Visual Crossing API to request and render a users required weather for a location.',
-    imgs: [home, dash1, dash2, dash3, dash4],
-  },
-  {
-    href: 'https://traejiik.github.io/todo-list/',
-    title: 'TODOalot | Todo-List',
-    desc: 'A project to add and track tasks in the form of a Todo-list.',
-    imgs: [todo1, todo2, todo3],
-  },
-  {
-    href: 'https://traejiik.github.io/tic-tac-toe/',
-    title: 'Tic-Tac-Toe',
-    desc: 'A simple, fun project to play tic-tac-toe in the browser, keep score and announce a winner',
-    imgs: [tic1, tic2, tic3],
-  },
-];
+const client = createClient({
+  projectId: 'ws70jog7',
+  dataset: 'production',
+  useCdn: true,
+  apiVersion: '2023-01-01',
+});
+
+async function fetchProjects() {
+  return await client.fetch(`*[_type == "project"]{
+    title,
+    description,
+    url,
+    "imgs": gallery[].asset->url
+  }`);
+}
 
 function createProjectCard({ href, title, desc, imgs }) {
   const link = document.createElement('a');
@@ -63,16 +48,31 @@ function createProjectCard({ href, title, desc, imgs }) {
   const navCircles = document.createElement('div');
   navCircles.className = 'nav-circles';
 
-  imgs.forEach((src, index) => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = `projectImage${index + 1}`;
-    img.className = 'slider-dimen';
-    wideFrame.appendChild(img);
+  if (imgs.length) {
+    imgs.forEach((src, index) => {
+      if (!src || typeof src !== 'string' || !src.startsWith('http')) return;
 
-    const navButton = document.createElement('button');
-    navCircles.appendChild(navButton);
-  });
+      const imgWrapper = document.createElement('div');
+      imgWrapper.className = 'slide';
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `projectImage${index + 1}`;
+      img.className = 'slider-dimen';
+
+      imgWrapper.appendChild(img);
+      wideFrame.appendChild(imgWrapper);
+
+      const navButton = document.createElement('button');
+      navButton.dataset.index = index;
+      navCircles.appendChild(navButton);
+    });
+  } else {
+    const placeholder = document.createElement('div');
+    placeholder.className = 'img-placeholder';
+    placeholder.textContent = 'No images available';
+    wideFrame.appendChild(placeholder);
+  }
 
   const controls = document.createElement('div');
   controls.className = 'controls slider-dimen';
@@ -100,9 +100,15 @@ function createProjectCard({ href, title, desc, imgs }) {
   return link;
 }
 
-export default function renderProjs() {
+export default async function renderProjs() {
   const cardContainer = document.querySelector('.card-ctnr');
+  const projects = await fetchProjects();
   projects.forEach((project) => {
-    cardContainer.appendChild(createProjectCard(project));
+    cardContainer.appendChild(createProjectCard({
+      href: project.url,
+      title: project.title,
+      desc: project.description,
+      imgs: project.imgs || [],
+    }));
   });
 }
