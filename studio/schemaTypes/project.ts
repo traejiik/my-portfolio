@@ -12,8 +12,13 @@ export default defineType({
       type: 'slug',
       options: {source: 'title', maxLength: 96},
     }),
+    defineField({
+      name: 'featuredImage',
+      title: 'Featured Image',
+      type: 'image',
+      options: {hotspot: true},
+    }),
     defineField({name: 'description', title: 'Description', type: 'text'}),
-    defineField({name: 'image', title: 'Image', type: 'image', options: {hotspot: true}}),
     defineField({name: 'liveUrl', title: 'Live URL', type: 'url'}),
     defineField({name: 'githubUrl', title: 'GitHub Repo', type: 'url'}),
     defineField({
@@ -21,6 +26,12 @@ export default defineType({
       title: 'Technologies Used',
       type: 'array',
       of: [{type: 'string'}],
+    }),
+    defineField({
+      name: 'gallery',
+      title: 'Project Gallery',
+      type: 'array',
+      of: [{type: 'image', options: {hotspot: true}}],
     }),
   ],
 })
