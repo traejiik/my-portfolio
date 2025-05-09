@@ -6,4 +6,5 @@ export default (S: StructureBuilder) =>
     .items([
       S.documentTypeListItem('project').title('Projects'),
       S.documentTypeListItem('certificate').title('Certificates'),
+      S.documentTypeListItem('technology').title('Technologies'),
     ])
