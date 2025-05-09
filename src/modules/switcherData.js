@@ -1,23 +1,29 @@
-import html5 from '../assets/images/cert/itsWebApp.png';
-import nvDLF from '../assets/images/cert/nvdLF.png';
+import { createClient } from '@sanity/client';
 
-const technologies = ['html', 'css', 'javascript', 'git', 'figma'];
-const certificates = [
-  {
-    imgSrc: html5,
-    altText: 'its html5',
-    title: 'HTML5 Web Application Development',
-    desc: 'Demonstrates the ability to use HTML5, CSS, and JavaScript to build responsive web applications that will run on a variety of touch-enabled devices, including PCs, tablets, and phones.',
-  },
-  {
-    imgSrc: nvDLF,
-    altText: 'nvidia dlf',
-    title: 'Fundamentals of Deep Learning',
-    desc: 'Demonstrates competency in the completion in Fundamentals of Deep Learning by NVIDIA Deep Learning Institute.',
-  },
-];
+const client = createClient({
+  projectId: 'ws70jog7',
+  dataset: 'production',
+  useCdn: true,
+  apiVersion: '2025-05-08',
+});
 
-function createCertCard({ imgSrc, altText, title, desc }) {
+async function fetchTechnologies() {
+  return await client.fetch(`*[_type == "technology"]{
+    name,
+    category,
+    "icon": icon.asset->url
+  }`);
+}
+
+async function fetchCertificates() {
+  return await client.fetch(`*[_type == "certificate"]{
+    title,
+    description,
+    "imgSrc": file.asset->url
+  }`);
+}
+
+function createCertCard({ imgSrc, title, description }) {
   const certCard = document.createElement('div');
   certCard.className = 'cert-card';
 
@@ -26,7 +32,7 @@ function createCertCard({ imgSrc, altText, title, desc }) {
 
   const img = document.createElement('img');
   img.src = imgSrc;
-  img.alt = altText || 'Certificate Image';
+  img.alt = title || 'Certificate Image';
   img.className = 'cert-img';
 
   imgContainer.appendChild(img);
@@ -38,7 +44,7 @@ function createCertCard({ imgSrc, altText, title, desc }) {
   heading.textContent = title || 'Certificate';
 
   const paragraph = document.createElement('p');
-  paragraph.textContent = desc || 'Demonstrates proficiency.';
+  paragraph.textContent = description || 'Demonstrates proficiency.';
 
   textContainer.appendChild(heading);
   textContainer.appendChild(paragraph);
@@ -49,29 +55,66 @@ function createCertCard({ imgSrc, altText, title, desc }) {
   return certCard;
 }
 
-function createTechCard(element) {
+function createTechCard({ name, icon }) {
   const techCard = document.createElement('div');
   techCard.className = 'tech-card';
-  techCard.textContent = element;
+
+  if (icon) {
+    const img = document.createElement('img');
+    img.src = icon;
+    img.alt = name;
+    img.className = 'tech-icon';
+    techCard.appendChild(img);
+  }
+
+  const label = document.createElement('span');
+  label.textContent = name;
+  techCard.appendChild(label);
 
   return techCard;
 }
 
-function renderCert() {
+async function renderTechs() {
+  const techContainer = document.querySelector('.technologies');
+  const techs = await fetchTechnologies();
+
+  const grouped = techs.reduce((acc, tech) => {
+    const cat = tech.category || 'Other';
+    if (!acc[cat]) acc[cat] = [];
+    acc[cat].push(tech);
+    return acc;
+  }, {});
+
+  Object.entries(grouped).forEach(([category, techList]) => {
+    const groupBlock = document.createElement('div');
+    groupBlock.className = 'tech-category-block';
+
+    const heading = document.createElement('h3');
+    heading.textContent = category;
+    heading.className = 'tech-category-title';
+    groupBlock.appendChild(heading);
+
+    const groupGrid = document.createElement('div');
+    groupGrid.className = 'tech-group-grid';
+
+    techList.forEach((tech) => {
+      groupGrid.appendChild(createTechCard(tech));
+    });
+
+    groupBlock.appendChild(groupGrid);
+    techContainer.appendChild(groupBlock);
+  });
+}
+
+async function renderCert() {
   const cardContainer = document.querySelector('.certifications');
-  certificates.forEach((cert) => {
+  const certs = await fetchCertificates();
+  certs.forEach((cert) => {
     cardContainer.appendChild(createCertCard(cert));
   });
 }
 
-function renderTechs() {
-  const cardContainer = document.querySelector('.technologies');
-  technologies.forEach((techs) => {
-    cardContainer.appendChild(createTechCard(techs));
-  });
-}
-
-export default function renderData() {
-  renderTechs();
-  renderCert();
+export default async function renderData() {
+  await renderTechs();
+  await renderCert();
 }
